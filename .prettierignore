@@ -1,0 +1,9 @@
+node_modules
+dist
+build
+.next
+out
+.expo
+*.min.js
+pnpm-lock.yaml
+samples

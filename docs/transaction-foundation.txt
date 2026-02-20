@@ -1,0 +1,7 @@
+Bank statement layouts across issuers
+Multiple formats (PDF, SMS, Email)
+Duplicate detection
+Normalization (timestamps, currencies)
+Merchant resolution
+Category taxonomy
+Integration with rewards logic
