@@ -82,3 +82,14 @@ The catalog content and data model spec (see [catalog-content-and-data-model.md]
 - **Catalog content and data model spec:** Checked; consistent with PRD and Finance constraints; clarifications resolved in design doc.
 - **Data sources and phases:** Verified; record-level and fee-level source/sourceRef required for v1; Developer plan updated accordingly.
 - **Proceed to schema design and implementation** using the canonical content and data model and data-sources policy. Freeze Catalog v1 before starting Reward Rules DSL.
+
+---
+
+## Post-review updates (catalog tightening)
+
+After external review and Finance verification ([catalog-review-finance-verification.md](catalog-review-finance-verification.md)):
+
+- **Caps/exclusions** → replaced with **declaredConstraints** (verbatim text + source/sourceRef). No executable structure in catalog; Reward Rules DSL interprets later.
+- **Milestone** → added optional **source**, **sourceRef** for provenance.
+- **RewardCurrency** → machine-friendly: `points` | `cashback` | `miles` | `neucoins` | `other`; use `REWARD_CURRENCY_DISPLAY_NAMES` in domain for UI.
+- **CardIdentity / CardDeclaration split** → agreed as target design for versioning; document and consider for v2.

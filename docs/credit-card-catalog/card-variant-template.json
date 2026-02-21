@@ -1,0 +1,27 @@
+{
+  "id": "",
+  "bank": "HDFC",
+  "family": "",
+  "variantName": "",
+  "network": "Visa",
+  "rewardCurrency": "points",
+  "cardType": "credit",
+  "fees": {
+    "joining": { "amount": 0, "currency": "INR", "source": "mitc", "sourceRef": "" },
+    "annual": { "amount": 0, "currency": "INR", "source": "mitc", "sourceRef": "" },
+    "waiverText": "",
+    "gstDisplay": ""
+  },
+  "milestones": [],
+  "benefits": [],
+  "declaredConstraints": [],
+  "declaredEligibility": [],
+  "declaredWelcomeBenefits": [],
+  "minTransactionAmount": null,
+  "tags": [],
+  "effectiveFrom": "2024-01-01",
+  "effectiveTo": null,
+  "source": "mitc",
+  "sourceRef": "",
+  "verifiedAt": ""
+}

@@ -21,7 +21,7 @@ function runTests(): void {
     family: "Regalia",
     variantName: "Regalia",
     network: "Visa",
-    rewardCurrency: "Reward Points",
+    rewardCurrency: "points",
     fees: {},
   });
   assert.ok(noSource.length > 0 && noSource.some((e) => e.includes("source")));
@@ -35,12 +35,27 @@ function runTests(): void {
     family: "Regalia",
     variantName: "Regalia",
     network: "Visa",
-    rewardCurrency: "Reward Points",
+    rewardCurrency: "points",
     fees: {},
   });
   assert.ok(
     noSourceRef.length > 0 && noSourceRef.some((e) => e.includes("sourceRef"))
   );
+
+  // Reject invalid rewardCurrency
+  const badCurrency = validateCardVariantPayload({
+    source: "mitc",
+    sourceRef: "x.pdf",
+    effectiveFrom: "2024-01-01",
+    verifiedAt: "2024-01-15T00:00:00Z",
+    bank: "HDFC",
+    family: "Regalia",
+    variantName: "Regalia",
+    network: "Visa",
+    rewardCurrency: "Reward Points",
+    fees: {},
+  });
+  assert.ok(badCurrency.length > 0 && badCurrency.some((e) => e.includes("rewardCurrency")));
 
   // Accept valid payload (minimal)
   const valid = validateCardVariantPayload({
@@ -52,7 +67,7 @@ function runTests(): void {
     family: "Regalia",
     variantName: "Regalia",
     network: "Visa",
-    rewardCurrency: "Reward Points",
+    rewardCurrency: "points",
     fees: {},
   });
   assert.strictEqual(valid.length, 0);
@@ -64,12 +79,14 @@ function runTests(): void {
     family: "Regalia",
     variant_name: "Regalia",
     network: "Visa",
-    reward_currency: "Reward Points",
+    reward_currency: "points",
     card_type: "credit",
     fees: { annual: { amount: 2500, currency: "INR" } },
     milestones: [],
     benefits: [],
-    caps: [],
+    declared_constraints: [],
+    declared_eligibility: [],
+    declared_welcome_benefits: [],
     effective_from: "2024-01-01",
     effective_to: null,
     source: "mitc",
@@ -79,10 +96,12 @@ function runTests(): void {
   const variant = rowToCardVariant(row);
   assert.strictEqual(variant.id, "test-id");
   assert.strictEqual(variant.bank, "HDFC");
+  assert.strictEqual(variant.rewardCurrency, "points");
   assert.strictEqual(variant.sourceRef, "https://example.com/mitc.pdf");
   const back = cardVariantToRow(variant);
   assert.strictEqual(back.id, row.id);
   assert.strictEqual(back.source_ref, row.source_ref);
+  assert.deepStrictEqual(back.declared_constraints, []);
 
   console.log("Catalog service tests passed.");
 }

@@ -16,7 +16,7 @@ Each **Card Variant** captures:
 - Card family (Regalia, Diners Black, Platinum Travel, etc.)
 - Variant name
 - Network (Visa / Mastercard / Amex / RuPay)
-- Reward currency (Reward Points, NeuCoins, Cashback, Miles)
+- Reward currency (machine-friendly: points, cashback, miles, neucoins, other; use REWARD_CURRENCY_DISPLAY_NAMES for UI)
 - Card type (credit / charge)
 
 ### 2. Fees
@@ -32,6 +32,7 @@ Each **Card Variant** captures:
 - Spend threshold (e.g. ₹1,50,000)
 - Period (monthly / quarterly / yearly)
 - Declared reward/benefit (text or structured tag)
+- Optional source/sourceRef for provenance (milestones are often disputed)
 - No computation. No enforcement.
 
 ### 4. Benefits (descriptive)
@@ -41,9 +42,9 @@ Each **Card Variant** captures:
 - Partner programs (Swiggy, Tata Neu, etc.)
 - Cashback programs (declared, not inferred)
 
-### 5. Declared caps (when card states them)
+### 5. Declared constraints (caps, exclusions, eligibility)
 
-- Cap value and period (monthly / quarterly / yearly) as **declaration only**—no application or computation. Application belongs to Reward Rules DSL / engines.
+- **Verbatim text only** (description + optional source/sourceRef). No executable structure—Reward Rules DSL interprets later. Replaces structured caps/exclusions to keep catalog pure. See [catalog-review-finance-verification.md](catalog-review-finance-verification.md).
 
 ### 6. Validity & versioning
 
@@ -96,15 +97,17 @@ CardVariant {
     gstDisplay?
   }
   // Record-level: source, verifiedAt (see Validity & versioning)
-  milestones?: Milestone[]   // { threshold, period, declaredReward }
+  milestones?: Milestone[]   // { threshold, period, declaredReward, source?, sourceRef? }
   benefits?: Benefit[]       // lounge, insurance, partners, cashback (declared)
-  caps?: CapDeclaration[]   // { value, period } — declaration only
+  declaredConstraints?: DeclaredConstraint[]  // verbatim caps, exclusions, eligibility; DSL interprets
   effectiveFrom
   effectiveTo?
   source
   verifiedAt
 }
 ```
+
+**Future (v2):** Consider splitting into **CardIdentity** (id, bank, family, variantName, network, rewardCurrency, cardType) and **CardDeclaration** (cardId, fees, milestones, benefits, declaredConstraints, effectiveFrom, effectiveTo, source, sourceRef, verifiedAt) for one card → many declarations over time. See [catalog-review-finance-verification.md](catalog-review-finance-verification.md).
 
 ---
 

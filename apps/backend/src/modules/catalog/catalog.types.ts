@@ -14,7 +14,11 @@ export type CatalogRow = {
   fees: Record<string, unknown>;
   milestones: unknown[];
   benefits: unknown[];
-  caps: unknown[];
+  declared_constraints: unknown[];
+  declared_eligibility?: unknown[];
+  declared_welcome_benefits?: unknown[];
+  min_transaction_amount?: { amount: number; currency: string } | null;
+  tags?: string[];
   effective_from: string;
   effective_to: string | null;
   source: string;

@@ -13,7 +13,11 @@ create table if not exists public.card_variants (
   fees jsonb not null default '{}',
   milestones jsonb default '[]',
   benefits jsonb default '[]',
-  caps jsonb default '[]',
+  declared_constraints jsonb default '[]',
+  declared_eligibility jsonb default '[]',
+  declared_welcome_benefits jsonb default '[]',
+  min_transaction_amount jsonb,
+  tags jsonb default '[]',
   effective_from text not null,
   effective_to text,
   source text not null,
@@ -25,5 +29,12 @@ create table if not exists public.card_variants (
 
 create index if not exists card_variants_bank on public.card_variants (bank);
 create index if not exists card_variants_family on public.card_variants (family);
+
+-- If table already existed without exclusions:
+alter table public.card_variants add column if not exists declared_constraints jsonb default '[]';
+alter table public.card_variants add column if not exists declared_eligibility jsonb default '[]';
+alter table public.card_variants add column if not exists declared_welcome_benefits jsonb default '[]';
+alter table public.card_variants add column if not exists min_transaction_amount jsonb;
+alter table public.card_variants add column if not exists tags jsonb default '[]';
 
 comment on table public.card_variants is 'Credit Card Catalog v1: one row per card variant. Declaration-only; source + source_ref required.';

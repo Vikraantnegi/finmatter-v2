@@ -8,12 +8,16 @@ import type {
   Fees,
   Milestone,
   Benefit,
-  CapDeclaration,
+  DeclaredConstraint,
+  DeclaredEligibility,
+  DeclaredWelcomeBenefit,
   CatalogSource,
+  RewardCurrency,
 } from "@finmatter/domain";
 import type { CatalogRow } from "./catalog.types";
 
 const VALID_SOURCES: CatalogSource[] = ["bank_site", "mitc", "statement"];
+const VALID_REWARD_CURRENCIES: RewardCurrency[] = ["points", "cashback", "miles", "neucoins", "other"];
 
 /**
  * Validate payload for add/update. Finance: source + sourceRef required.
@@ -69,6 +73,8 @@ export function validateCardVariantPayload(
   }
   if (!payload.rewardCurrency || String(payload.rewardCurrency).trim() === "") {
     errors.push("rewardCurrency is required");
+  } else if (!VALID_REWARD_CURRENCIES.includes(payload.rewardCurrency as RewardCurrency)) {
+    errors.push(`rewardCurrency must be one of: ${VALID_REWARD_CURRENCIES.join(", ")}`);
   }
   if (!payload.fees || typeof payload.fees !== "object") {
     errors.push("fees is required and must be an object");
@@ -95,7 +101,13 @@ export function rowToCardVariant(row: CatalogRow): CardVariant {
     },
     milestones: (row.milestones ?? []) as Milestone[],
     benefits: (row.benefits ?? []) as Benefit[],
-    caps: (row.caps ?? []) as CapDeclaration[],
+    declaredConstraints: (row.declared_constraints ?? []) as DeclaredConstraint[],
+    declaredEligibility: (row.declared_eligibility ?? []) as DeclaredEligibility[],
+    declaredWelcomeBenefits: (row.declared_welcome_benefits ?? []) as DeclaredWelcomeBenefit[],
+    minTransactionAmount: row.min_transaction_amount
+      ? { amount: row.min_transaction_amount.amount, currency: row.min_transaction_amount.currency }
+      : undefined,
+    tags: row.tags ?? undefined,
     effectiveFrom: row.effective_from,
     effectiveTo: row.effective_to ?? undefined,
     source: row.source as CatalogSource,
@@ -117,7 +129,13 @@ export function cardVariantToRow(v: CardVariant): Omit<CatalogRow, "created_at" 
     fees: v.fees as Record<string, unknown>,
     milestones: (v.milestones ?? []) as unknown[],
     benefits: (v.benefits ?? []) as unknown[],
-    caps: (v.caps ?? []) as unknown[],
+    declared_constraints: (v.declaredConstraints ?? []) as unknown[],
+    declared_eligibility: (v.declaredEligibility ?? []) as unknown[],
+    declared_welcome_benefits: (v.declaredWelcomeBenefits ?? []) as unknown[],
+    min_transaction_amount: v.minTransactionAmount
+      ? { amount: v.minTransactionAmount.amount, currency: v.minTransactionAmount.currency }
+      : null,
+    tags: v.tags ?? undefined,
     effective_from: v.effectiveFrom,
     effective_to: v.effectiveTo ?? null,
     source: v.source,
