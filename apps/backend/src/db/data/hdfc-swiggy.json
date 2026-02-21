@@ -1,0 +1,44 @@
+{
+  "id": "hdfc-swiggy",
+  "bank": "HDFC",
+  "family": "Swiggy",
+  "variantName": "HDFC Swiggy Credit Card",
+  "network": "Mastercard",
+  "rewardCurrency": "cashback",
+  "cardType": "credit",
+  "fees": {
+    "joining": { "amount": 0, "currency": "INR", "source": "bank_site", "sourceRef": "HDFC Swiggy Card page" },
+    "annual": { "amount": 500, "currency": "INR", "source": "bank_site", "sourceRef": "HDFC Swiggy Card page" },
+    "waiverText": "Fee waiver on annual spend of ₹2,00,000 or more"
+  },
+  "benefits": [
+    { "type": "cashback", "description": "10% cashback on Swiggy orders (monthly cap applies)" },
+    { "type": "cashback", "description": "5% cashback on select online spends (monthly cap applies)" },
+    { "type": "cashback", "description": "1% cashback on other spends (monthly cap applies)" },
+    { "type": "membership", "description": "Free Swiggy One membership for 3 months" },
+    { "type": "golf", "description": "Access to golf courses worldwide & 12 free lessons/year" },
+    { "type": "other", "description": "Free 1 night stay & dining benefits at select places globally" },
+    { "type": "other", "description": "12% instant discount on worldwide hotel bookings on Agoda" }
+  ],
+  "milestones": [
+    { "threshold": 200000, "period": "yearly", "declaredReward": "Fee waiver on annual spend milestone", "source": "bank_site", "sourceRef": "HDFC Swiggy Card page" }
+  ],
+  "declaredConstraints": [
+    { "description": "10% cashback on Swiggy spends upto ₹1,500 per month", "source": "bank_site", "sourceRef": "HDFC Swiggy Card page" },
+    { "description": "5% cashback on select online spends upto ₹1,500 per month", "source": "bank_site", "sourceRef": "HDFC Swiggy Card page" },
+    { "description": "1% cashback on other spends upto ₹500 per month", "source": "bank_site", "sourceRef": "HDFC Swiggy Card page" },
+    { "description": "From any cashback: Rent, Utilities, Fuel, Insurance, EMI, Jewelry, Govt spends, Wallet loads & similar spends excluded", "source": "bank_site", "sourceRef": "HDFC Swiggy Card page" },
+    { "description": "From 5% cashback: Flights, hotel, bookings & others excluded", "source": "bank_site", "sourceRef": "HDFC Swiggy Card page" },
+    { "description": "Min transaction amount to qualify for cashback is Rs 100", "source": "bank_site", "sourceRef": "HDFC Swiggy Card page" }
+  ],
+  "declaredEligibility": [
+    { "description": "Salaried: Nationality Indian, Age 21-60 years, Income (Monthly) ₹15,000 and above", "source": "bank_site", "sourceRef": "HDFC Swiggy Card page" },
+    { "description": "Self-Employed: Age 21-65 years, Annual ITR > ₹6,00,000", "source": "bank_site", "sourceRef": "HDFC Swiggy Card page" }
+  ],
+  "minTransactionAmount": { "amount": 100, "currency": "INR" },
+  "tags": ["co-branded", "lifestyle"],
+  "effectiveFrom": "2024-01-01",
+  "source": "bank_site",
+  "sourceRef": "HDFC Swiggy Card page",
+  "verifiedAt": "2025-01-01T00:00:00Z"
+}

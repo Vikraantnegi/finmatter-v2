@@ -1,0 +1,103 @@
+{
+    "id": "hdfc-millennia-mastercard",
+    "bank": "HDFC",
+    "family": "Millennia",
+    "variantName": "HDFC Millennia Mastercard",
+    "network": "Mastercard",
+    "rewardCurrency": "cashback",
+    "cardType": "credit",
+    "fees": {
+      "joining": {
+        "amount": 1000,
+        "currency": "INR",
+        "source": "bank_site"
+      },
+      "annual": {
+        "amount": 1000,
+        "currency": "INR",
+        "source": "bank_site"
+      },
+      "waiverText": "Annual fee waived on spends of ₹1,00,000 or more in an anniversary year",
+      "gstDisplay": "+ GST as applicable"
+    },
+    "benefits": [
+      {
+        "type": "cashback",
+        "description": "5% cashback on select online merchants including Amazon, Flipkart, Myntra, Swiggy, Zomato, Uber and others"
+      },
+      {
+        "type": "cashback",
+        "description": "1% cashback on other eligible spends"
+      },
+      {
+        "type": "lounge",
+        "description": "Complimentary domestic airport lounge access",
+        "count": 8,
+        "domesticInternational": "domestic"
+      },
+      {
+        "type": "other",
+        "description": "1% fuel surcharge waiver on eligible fuel transactions"
+      }
+    ],
+    "milestones": [
+      {
+        "threshold": 100000,
+        "period": "quarterly",
+        "declaredReward": "Gift voucher worth ₹1,000 or one domestic lounge visit",
+        "source": "bank_site"
+      }
+    ],
+    "declaredWelcomeBenefits": [
+      {
+        "description": "1,000 cashback points awarded on payment of joining or renewal fee",
+        "source": "bank_site"
+      }
+    ],
+    "declaredConstraints": [
+      {
+        "description": "5% cashback capped at 1,000 cashback points per statement cycle",
+        "source": "bank_site"
+      },
+      {
+        "description": "1% cashback capped at 1,000 cashback points per statement cycle",
+        "source": "bank_site"
+      },
+      {
+        "description": "Cashback is not applicable on fuel, rent, government transactions and certain wallet loads",
+        "source": "mitc"
+      },
+      {
+        "description": "Domestic lounge access subject to minimum spend criteria as defined by the issuer",
+        "source": "mitc"
+      },
+      {
+        "description": "Fuel surcharge waiver applicable on fuel spends between ₹400 and ₹5,000, capped at ₹250 per statement cycle",
+        "source": "mitc"
+      },
+      {
+        "description": "CashPoints redeemed against statement credit have a value of ₹1 per point; travel redemptions via SmartBuy may have different value",
+        "source": "bank_site"
+      }
+    ],
+    "declaredEligibility": [
+      {
+        "description": "Salaried applicants: minimum net monthly income of ₹35,000; age between 21 and 40 years",
+        "source": "bank_site"
+      },
+      {
+        "description": "Self-employed applicants: minimum annual ITR of ₹6,00,000; age between 21 and 40 years",
+        "source": "bank_site"
+      }
+    ],
+    "minTransactionAmount": {
+      "amount": 100,
+      "currency": "INR"
+    },
+    "tags": ["cashback", "online-shopping", "lifestyle", "mid-tier"],
+    "effectiveFrom": "2024-01-01",
+    "source": "bank_site",
+    "sourceRef": "HDFC Millennia Credit Card product page",
+    "verifiedAt": "2025-01-01"
+  }
+  

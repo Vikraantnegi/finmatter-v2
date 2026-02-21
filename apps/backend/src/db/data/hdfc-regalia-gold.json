@@ -1,0 +1,127 @@
+{
+    "id": "hdfc-regalia-gold",
+    "bank": "HDFC",
+    "family": "Regalia",
+    "variantName": "Regalia Gold",
+    "network": "Visa",
+    "rewardCurrency": "points",
+    "cardType": "credit",
+    "fees": {
+      "joining": {
+        "amount": 2500,
+        "currency": "INR",
+        "source": "bank_site",
+        "sourceRef": "HDFC Regalia Gold Card page"
+      },
+      "annual": {
+        "amount": 2500,
+        "currency": "INR",
+        "source": "bank_site",
+        "sourceRef": "HDFC Regalia Gold Card page"
+      },
+      "waiverText": "Annual fee waived on spends of ₹4,00,000 or more in an anniversary year",
+      "gstDisplay": "+ GST as applicable"
+    },
+    "declaredWelcomeBenefits": [
+      {
+        "description": "Complimentary Swiggy One and MMT Black Elite memberships on spends of ₹1,00,000 within first 90 days of card issuance",
+        "source": "bank_site",
+        "sourceRef": "HDFC Regalia Gold Card page"
+      }
+    ],
+    "benefits": [
+      {
+        "type": "lounge",
+        "count": 12,
+        "domesticInternational": "domestic",
+        "networkBound": "Visa"
+      },
+      {
+        "type": "lounge",
+        "count": 6,
+        "domesticInternational": "international",
+        "description": "Complimentary international lounge access via Priority Pass for primary and add-on cardholders"
+      },
+      {
+        "type": "insurance",
+        "description": "Travel and purchase protection insurance benefits"
+      },
+      {
+        "type": "other",
+        "description": "Low foreign currency markup fee of 2%"
+      }
+    ],
+    "milestones": [
+      {
+        "threshold": 150000,
+        "period": "quarterly",
+        "declaredReward": "₹1,500 worth brand vouchers on quarterly spends of ₹1.5 lakh",
+        "source": "bank_site",
+        "sourceRef": "HDFC Regalia Gold Card page"
+      },
+      {
+        "threshold": 500000,
+        "period": "yearly",
+        "declaredReward": "₹5,000 flight voucher on annual spends of ₹5 lakh",
+        "source": "bank_site",
+        "sourceRef": "HDFC Regalia Gold Card page"
+      },
+      {
+        "threshold": 750000,
+        "period": "yearly",
+        "declaredReward": "Additional ₹5,000 flight voucher on reaching ₹7.5 lakh annual spends",
+        "source": "bank_site",
+        "sourceRef": "HDFC Regalia Gold Card page"
+      }
+    ],
+    "declaredConstraints": [
+      {
+        "description": "Earn 4 Reward Points for every ₹150 spent on retail transactions",
+        "source": "bank_site",
+        "sourceRef": "HDFC Regalia Gold Card page"
+      },
+      {
+        "description": "Earn 5X Reward Points on spends with partner brands such as Myntra, Nykaa, Marks & Spencer, and Reliance Digital",
+        "source": "bank_site",
+        "sourceRef": "HDFC Regalia Gold Card page"
+      },
+      {
+        "description": "Maximum reward points that can be earned in a statement cycle is 50,000",
+        "source": "mitc",
+        "sourceRef": "HDFC Regalia Gold MITC"
+      },
+      {
+        "description": "Reward Points are not applicable on fuel, rent, wallet loads, government transactions, and other excluded categories",
+        "source": "mitc",
+        "sourceRef": "HDFC Regalia Gold MITC"
+      },
+      {
+        "description": "Reward Points redemption value varies by category when redeemed via HDFC SmartBuy portal",
+        "source": "bank_site",
+        "sourceRef": "HDFC SmartBuy portal"
+      }
+    ],
+    "declaredEligibility": [
+      {
+        "description": "Applicant must be an Indian national",
+        "source": "bank_site",
+        "sourceRef": "HDFC Regalia Gold eligibility section"
+      },
+      {
+        "description": "Salaried individuals: Net monthly income of ₹1,00,000 or more",
+        "source": "bank_site",
+        "sourceRef": "HDFC Regalia Gold eligibility section"
+      },
+      {
+        "description": "Self-employed individuals: Annual ITR of ₹12 lakh or more",
+        "source": "bank_site",
+        "sourceRef": "HDFC Regalia Gold eligibility section"
+      }
+    ],
+    "tags": ["travel", "premium", "lifestyle"],
+    "effectiveFrom": "2023-01-01",
+    "source": "bank_site",
+    "sourceRef": "HDFC Regalia Gold Card page",
+    "verifiedAt": "2025-01-01T00:00:00Z"
+  }
+  

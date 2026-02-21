@@ -1,0 +1,103 @@
+{
+  "id": "hdfc-tata-neu-plus-rupay",
+  "bank": "HDFC",
+  "family": "Tata Neu",
+  "variantName": "Tata Neu Plus",
+  "network": "RuPay",
+  "rewardCurrency": "neucoins",
+  "cardType": "credit",
+  "fees": {
+    "joining": {
+      "amount": 499,
+      "currency": "INR",
+      "source": "bank_site",
+      "sourceRef": "https://www.hdfcbank.com/"
+    },
+    "annual": {
+      "amount": 499,
+      "currency": "INR",
+      "source": "bank_site",
+      "sourceRef": "https://www.hdfcbank.com/"
+    },
+    "waiverText": "Annual fee waived on spends of ₹1,00,000 or more in the preceding year.",
+    "gstDisplay": "+ applicable taxes"
+  },
+  "declaredWelcomeBenefits": [
+    {
+      "description": "499 NeuCoins as welcome benefit on completion of first transaction within 30 days of card issuance. NeuCoins can be claimed inside Tata Neu App within specified timelines. Not applicable for Lifetime Free or First Year Free cards.",
+      "source": "bank_site",
+      "sourceRef": "https://www.hdfcbank.com/"
+    }
+  ],
+  "benefits": [
+    {
+      "type": "lounge",
+      "description": "Complimentary Domestic Airport Lounge Access via milestone-based lounge vouchers.",
+      "count": 4,
+      "domesticInternational": "domestic",
+      "networkBound": "RuPay"
+    },
+    {
+      "type": "cashback",
+      "description": "Earn NeuCoins on UPI, Tata Neu App, partner Tata brands, and other eligible spends."
+    },
+    {
+      "type": "other",
+      "description": "1% fuel surcharge waiver on fuel transactions between ₹400 and ₹5,000, capped at ₹250 per statement cycle."
+    }
+  ],
+  "milestones": [
+    {
+      "threshold": 50000,
+      "period": "quarterly",
+      "declaredReward": "1 Complimentary Domestic Lounge Voucher on spending ₹50,000 or more in a calendar quarter (maximum 1 per quarter, up to 4 per year).",
+      "source": "bank_site",
+      "sourceRef": "https://www.hdfcbank.com/"
+    }
+  ],
+  "declaredConstraints": [
+    {
+      "description": "NeuCoins earning on UPI spends is capped at 500 NeuCoins per calendar month.",
+      "source": "bank_site",
+      "sourceRef": "https://www.hdfcbank.com/"
+    },
+    {
+      "description": "Additional 5% NeuCoins via NeuPass is applicable only on selected categories on Tata Neu App/Website and only when transacting via the primary cardholder's registered mobile number.",
+      "source": "bank_site",
+      "sourceRef": "https://www.hdfcbank.com/"
+    },
+    {
+      "description": "NeuCoins will not be accrued for Fuel, Wallet, Rental, Government and Online Gaming related transactions.",
+      "source": "bank_site",
+      "sourceRef": "https://www.hdfcbank.com/"
+    },
+    {
+      "description": "Certain categories such as Bill Payments (Tata Pay), Tanishq, Cult.fit, Air India and Tata Play are excluded from additional 5% NeuCoins benefit via NeuPass.",
+      "source": "bank_site",
+      "sourceRef": "https://www.hdfcbank.com/"
+    },
+    {
+      "description": "Domestic lounge access is milestone-based effective June 2025 and is issued as a voucher after meeting quarterly spend criteria.",
+      "source": "bank_site",
+      "sourceRef": "https://www.hdfcbank.com/"
+    }
+  ],
+  "declaredEligibility": [
+    {
+      "description": "Salaried individuals aged 21–60 years with net monthly income above ₹25,000.",
+      "source": "bank_site",
+      "sourceRef": "https://www.hdfcbank.com/"
+    },
+    {
+      "description": "Self-employed individuals aged 21–65 years with annual ITR above ₹6,00,000.",
+      "source": "bank_site",
+      "sourceRef": "https://www.hdfcbank.com/"
+    }
+  ],
+  "tags": ["co-branded", "cashback", "tata", "upi", "lifestyle"],
+  "effectiveFrom": "2024-08-01",
+  "effectiveTo": null,
+  "source": "bank_site",
+  "sourceRef": "https://www.hdfcbank.com/",
+  "verifiedAt": "2026-02-22T00:00:00Z"
+}
