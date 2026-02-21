@@ -45,3 +45,12 @@ Do **Credit Card Catalog** before **Reward Rules DSL**. Rules reference cards an
 ---
 
 **TL;DR:** Next step is **Milestone 2 — Credit Card Catalog**. Design card + variant + benefit schema, version it, then move to Reward Rules DSL (Milestone 3).
+
+---
+
+## Milestone 2 — PRD and verification
+
+- **PRD (Product Owner):** [docs/credit-card-catalog/milestone-2-catalog-prd.md](credit-card-catalog/milestone-2-catalog-prd.md) — Problem, goals, non-goals, user stories, acceptance criteria, scope for Catalog v1.
+- **Finance verification:** [docs/credit-card-catalog/milestone-2-catalog-finance-verification.md](credit-card-catalog/milestone-2-catalog-finance-verification.md) — Validation findings, inconsistencies to avoid, required clarifications (caps scope, milestone definitions, benefit eligibility).
+- **Developer plan:** [docs/credit-card-catalog/milestone-2-catalog-developer-plan.md](credit-card-catalog/milestone-2-catalog-developer-plan.md) — Steps, files, storage choice, schema, versioning, testing; no implementation until confirmed.
+- **Process:** PO wrote PRD → Finance verified → Developer planned; proceed to implementation when confirmed; freeze Catalog v1 before designing Reward Rules DSL.

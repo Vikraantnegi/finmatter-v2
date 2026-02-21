@@ -31,3 +31,9 @@ export type {
   TransactionForKey,
 } from "./modules/transactions";
 export type { CategorizedTransaction } from "@finmatter/domain";
+export {
+  validateCardVariantPayload,
+  rowToCardVariant,
+  cardVariantToRow,
+} from "./modules/catalog";
+export type { CatalogRow } from "./modules/catalog";
