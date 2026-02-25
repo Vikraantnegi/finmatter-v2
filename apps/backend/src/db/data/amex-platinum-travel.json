@@ -1,0 +1,112 @@
+{
+    "id": "amex-platinum-travel",
+    "bank": "AMEX",
+    "family": "Platinum",
+    "variantName": "American Express Platinum Travel Credit Card",
+    "network": "Amex",
+    "rewardCurrency": "points",
+    "cardType": "credit",
+  
+    "fees": {
+      "joining": {
+        "amount": 5000,
+        "currency": "INR",
+        "source": "bank_site"
+      },
+      "annual": {
+        "amount": 5000,
+        "currency": "INR",
+        "source": "bank_site"
+      },
+      "gstDisplay": "+ GST"
+    },
+  
+    "benefits": [
+      {
+        "type": "lounge",
+        "description": "Complimentary domestic airport lounge access in India",
+        "count": 8,
+        "domesticInternational": "domestic"
+      },
+      {
+        "type": "membership",
+        "description": "Complimentary Priority Pass membership (lounge visits chargeable)"
+      },
+      {
+        "type": "partner",
+        "description": "Hotel and travel redemptions through Platinum Travel Collection and partner hotels"
+      }
+    ],
+  
+    "milestones": [
+      {
+        "threshold": 190000,
+        "period": "yearly",
+        "declaredReward": "15,000 bonus Membership Rewards points",
+        "source": "bank_site"
+      },
+      {
+        "threshold": 400000,
+        "period": "yearly",
+        "declaredReward": "25,000 bonus Membership Rewards points and Taj Experiences E-Gift Card worth ₹10,000",
+        "source": "bank_site"
+      }
+    ],
+  
+    "declaredWelcomeBenefits": [
+      {
+        "description": "10,000 Membership Rewards points on spending ₹15,000 within the first 90 days of cardmembership",
+        "source": "bank_site"
+      }
+    ],
+  
+    "declaredConstraints": [
+      {
+        "description": "Earn 1 Membership Rewards point for every ₹50 spent",
+        "source": "bank_site"
+      },
+      {
+        "description": "Reward points are not earned on fuel, insurance, utilities, cash transactions, or EMI conversions at POS",
+        "source": "bank_site"
+      },
+      {
+        "description": "Domestic lounge access limited to 2 complimentary visits per calendar quarter",
+        "source": "bank_site"
+      },
+      {
+        "description": "Milestone structures and thresholds may be revised for new cardmembers; existing cardholders may retain current benefits on renewal",
+        "source": "statement"
+      }
+    ],
+  
+    "declaredEligibility": [
+      {
+        "description": "Applicant must be over 18 years of age and an Indian resident",
+        "source": "bank_site"
+      },
+      {
+        "description": "Minimum personal annual income of ₹6,00,000 for salaried or self-employed individuals",
+        "source": "bank_site"
+      },
+      {
+        "description": "Available only in select Indian cities as notified by American Express",
+        "source": "bank_site"
+      }
+    ],
+  
+    "tags": [
+      "travel",
+      "milestone-heavy",
+      "premium",
+      "amex",
+      "hotel-redemption"
+    ],
+  
+    "effectiveFrom": "2022-01-01",
+    "effectiveTo": null,
+  
+    "source": "bank_site",
+    "sourceRef": "American Express Platinum Travel Credit Card official page",
+    "verifiedAt": "2026-02-26"
+  }
+  

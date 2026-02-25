@@ -1,0 +1,50 @@
+{
+  "id": "icici-sapphiro-visa",
+  "bank": "ICICI",
+  "family": "Sapphiro",
+  "variantName": "ICICI Sapphiro Visa Credit Card",
+  "network": "Visa",
+  "rewardCurrency": "points",
+  "cardType": "credit",
+  "fees": {
+    "joining": { "amount": 6500, "currency": "INR", "source": "bank_site" },
+    "annual": { "amount": 3500, "currency": "INR", "source": "bank_site" },
+    "waiverText": "Annual fee waived on spends of ₹6,00,000 or more in a year",
+    "gstDisplay": "+ GST"
+  },
+  "benefits": [
+    { "type": "lounge", "description": "4 domestic airport lounge visits per quarter (spend-based)", "count": 4, "domesticInternational": "domestic" },
+    { "type": "lounge", "description": "2 international lounge visits per year (Priority Pass / DreamFolks)", "count": 2, "domesticInternational": "international" },
+    { "type": "partner", "description": "BookMyShow buy-one-get-one (2 per month, max ₹500 per ticket)" },
+    { "type": "golf", "description": "4 complimentary golf rounds or lessons per month (spend-based)" },
+    { "type": "membership", "description": "EazyDiner Prime 3 months as welcome benefit" },
+    { "type": "other", "description": "1% fuel surcharge waiver at all fuel pumps (max transaction ₹4,000)" }
+  ],
+  "milestones": [
+    { "threshold": 400000, "period": "yearly", "declaredReward": "4,000 reward points", "source": "bank_site" },
+    { "threshold": 500000, "period": "yearly", "declaredReward": "2,000 reward points per lakh (incremental, cap 20,000 per year)", "source": "bank_site" }
+  ],
+  "declaredWelcomeBenefits": [
+    { "description": "Welcome vouchers worth ₹13,000 (Tata CliQ ₹3,000, EaseMyTrip ₹4,000, Da Milano ₹5,000, Croma ₹1,500)", "source": "bank_site" },
+    { "description": "EazyDiner Prime membership for 3 months (value ₹1,095)", "source": "bank_site" }
+  ],
+  "declaredEligibility": [
+    { "description": "Indian citizen aged 21 years or above", "source": "bank_site" },
+    { "description": "Salaried: minimum monthly income ₹75,000", "source": "bank_site" },
+    { "description": "Self-employed: minimum annual income ₹9,00,000", "source": "bank_site" }
+  ],
+  "declaredConstraints": [
+    { "description": "4 reward points per ₹100 on international spends; 2 per ₹100 domestic; 1 per ₹100 on utilities and insurance", "source": "bank_site" },
+    { "description": "Domestic lounge access subject to minimum spend of ₹75,000 in previous quarter", "source": "bank_site" },
+    { "description": "International lounge provider depends on card issuance date (Priority Pass or DreamFolks)", "source": "bank_site" },
+    { "description": "Milestone reward points capped at 20,000 per anniversary year", "source": "bank_site" },
+    { "description": "Foreign currency markup 3.5%", "source": "bank_site" }
+  ],
+  "minTransactionAmount": { "amount": 100, "currency": "INR" },
+  "tags": ["premium", "lifestyle_travel", "Visa Infinite", "lounge", "golf", "entertainment"],
+  "effectiveFrom": "2022-01-01",
+  "effectiveTo": null,
+  "source": "bank_site",
+  "sourceRef": "ICICI Bank Sapphiro Credit Card page",
+  "verifiedAt": "2026-02-25T00:00:00Z"
+}

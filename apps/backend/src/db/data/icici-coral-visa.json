@@ -1,0 +1,46 @@
+{
+  "id": "icici-coral-visa",
+  "bank": "ICICI",
+  "family": "Coral",
+  "variantName": "ICICI Coral Visa Credit Card",
+  "network": "Visa",
+  "rewardCurrency": "points",
+  "cardType": "credit",
+  "fees": {
+    "joining": { "amount": 500, "currency": "INR", "source": "bank_site" },
+    "annual": { "amount": 500, "currency": "INR", "source": "bank_site" },
+    "waiverText": "Annual fee waived on spends of ₹1,50,000 or more in a year",
+    "gstDisplay": "+ GST"
+  },
+  "benefits": [
+    { "type": "lounge", "description": "1 domestic airport lounge visit per quarter (spend-based)", "count": 1, "domesticInternational": "domestic" },
+    { "type": "lounge", "description": "1 railway lounge visit per quarter", "count": 1, "domesticInternational": "domestic" },
+    { "type": "partner", "description": "25% discount on BookMyShow and INOX (2 uses per month, max ₹100 per ticket)" },
+    { "type": "partner", "description": "Up to 15% discount at 2500+ restaurants via ICICI Culinary Treats" },
+    { "type": "insurance", "description": "Personal Accident cover (RuPay variant; ₹2,00,000)" },
+    { "type": "other", "description": "1% fuel surcharge waiver at HPCL (₹400–₹4,000 per transaction)" }
+  ],
+  "milestones": [
+    { "threshold": 200000, "period": "yearly", "declaredReward": "2,000 reward points", "source": "bank_site" },
+    { "threshold": 300000, "period": "yearly", "declaredReward": "1,000 reward points per lakh (incremental, cap 10,000 per year)", "source": "bank_site" }
+  ],
+  "declaredEligibility": [
+    { "description": "Indian citizen aged 21 years or above", "source": "bank_site" },
+    { "description": "Salaried: minimum monthly income ₹20,000", "source": "bank_site" },
+    { "description": "Self-employed: minimum annual income ₹2,40,000", "source": "bank_site" }
+  ],
+  "declaredConstraints": [
+    { "description": "2 reward points per ₹100 on retail spends; fuel excluded", "source": "bank_site" },
+    { "description": "1 reward point per ₹100 on utilities and insurance", "source": "bank_site" },
+    { "description": "Domestic lounge access subject to minimum spend of ₹75,000 in previous quarter", "source": "bank_site" },
+    { "description": "Foreign currency markup 3.5%", "source": "bank_site" }
+  ],
+  "declaredWelcomeBenefits": [],
+  "minTransactionAmount": { "amount": 400, "currency": "INR" },
+  "tags": ["entry_level", "gemstone", "everyday_lifestyle", "lifestyle", "fuel", "entertainment", "dining"],
+  "effectiveFrom": "2022-01-01",
+  "effectiveTo": null,
+  "source": "bank_site",
+  "sourceRef": "ICICI Bank Coral Credit Card page",
+  "verifiedAt": "2026-02-25T00:00:00Z"
+}

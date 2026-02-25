@@ -8,7 +8,8 @@
     "build": "tsc",
     "clean": "rimraf dist",
     "extract": "ts-node scripts/run-extract.ts",
-    "parse-samples": "ts-node scripts/run-parse-samples.ts"
+    "parse-samples": "ts-node scripts/run-parse-samples.ts",
+    "seed-catalog": "ts-node scripts/seed-catalog.ts"
   },
   "dependencies": {
     "@finmatter/domain": "workspace:*",

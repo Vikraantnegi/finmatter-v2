@@ -1,0 +1,109 @@
+{
+  "id": "icici-amazon-pay",
+  "bank": "ICICI",
+  "family": "Amazon Pay",
+  "variantName": "Amazon Pay ICICI Bank Credit Card",
+  "network": "Visa",
+  "rewardCurrency": "cashback",
+  "cardType": "credit",
+
+  "fees": {
+    "joining": {
+      "amount": 0,
+      "currency": "INR",
+      "source": "bank_site"
+    },
+    "annual": {
+      "amount": 0,
+      "currency": "INR",
+      "source": "bank_site"
+    },
+    "waiverText": "Lifetime Free"
+  },
+
+  "benefits": [
+    {
+      "type": "cashback",
+      "description": "Unlimited, non-expiring cashback credited directly to Amazon Pay balance (1 cashback = ₹1)."
+    },
+    {
+      "type": "partner",
+      "description": "Higher cashback on Amazon.in purchases for Prime members."
+    },
+    {
+      "type": "partner",
+      "description": "Cashback on 100+ Amazon Pay partner merchants when using Login and Pay with Amazon."
+    },
+    {
+      "type": "other",
+      "description": "Lower foreign currency markup compared to most entry-level cards."
+    }
+  ],
+
+  "declaredConstraints": [
+    {
+      "description": "No cashback is earned on fuel, EMI transactions, rent, education payments, or gold purchases.",
+      "source": "mitc"
+    },
+    {
+      "description": "Amazon Prime membership status determines applicable cashback tier on Amazon spends.",
+      "source": "bank_site"
+    }
+  ],
+
+  "declaredEligibility": [
+    {
+      "description": "Indian citizen aged between 21 and 60 years.",
+      "source": "bank_site"
+    },
+    {
+      "description": "Salaried applicants require a minimum monthly income of ₹20,000.",
+      "source": "bank_site"
+    },
+    {
+      "description": "Self-employed applicants require a minimum monthly income of ₹30,000.",
+      "source": "bank_site"
+    },
+    {
+      "description": "Card is generally offered to existing Amazon India customers via invite-only or pre-approved flow.",
+      "source": "bank_site"
+    }
+  ],
+
+  "declaredWelcomeBenefits": [
+    {
+      "description": "No joining bonus. Card is lifetime free with ongoing cashback benefits.",
+      "source": "bank_site"
+    }
+  ],
+
+  "milestones": [
+    {
+      "threshold": 0,
+      "period": "yearly",
+      "declaredReward": "No spend-based milestones. Cashback is uncapped and earned per transaction.",
+      "source": "bank_site"
+    }
+  ],
+
+  "minTransactionAmount": {
+    "amount": 1,
+    "currency": "INR"
+  },
+
+  "tags": [
+    "co-branded",
+    "cashback",
+    "lifetime-free",
+    "amazon",
+    "online-spends",
+    "entry-level"
+  ],
+
+  "effectiveFrom": "2018-01-01",
+  "effectiveTo": null,
+
+  "source": "bank_site",
+  "sourceRef": "https://www.amazon.in/amazonpay/icici-credit-card",
+  "verifiedAt": "2026-02-25"
+}

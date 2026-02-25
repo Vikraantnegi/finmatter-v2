@@ -1,0 +1,107 @@
+{
+  "id": "hdfc-tata-neu-infinity",
+  "bank": "HDFC",
+  "family": "Tata Neu",
+  "variantName": "HDFC Tata Neu Infinity Credit Card",
+  "network": "RuPay",
+  "rewardCurrency": "neucoins",
+  "cardType": "credit",
+  "fees": {
+    "joining": {
+      "amount": 1499,
+      "currency": "INR",
+      "source": "bank_site",
+      "sourceRef": "HDFC Tata Neu Infinity Card Page"
+    },
+    "annual": {
+      "amount": 1499,
+      "currency": "INR",
+      "source": "bank_site",
+      "sourceRef": "HDFC Tata Neu Infinity Card Page"
+    },
+    "waiverText": "Annual fee waived on spends of ₹3,00,000 or more in the preceding year",
+    "gstDisplay": "GST applicable as per government norms"
+  },
+  "declaredWelcomeBenefits": [
+    {
+      "description": "1,499 NeuCoins on first transaction within 30 days of card issuance, credited via Tata Neu App (effectively reversing first-year membership fee)",
+      "source": "bank_site",
+      "sourceRef": "HDFC Tata Neu Infinity Welcome Benefits"
+    }
+  ],
+  "benefits": [
+    {
+      "type": "lounge",
+      "description": "8 complimentary domestic airport lounge visits per year (2 per calendar quarter)",
+      "count": 8,
+      "domesticInternational": "domestic"
+    },
+    {
+      "type": "lounge",
+      "description": "4 complimentary international airport lounge visits per year (1 per calendar quarter) via Priority Pass",
+      "count": 4,
+      "domesticInternational": "international"
+    },
+    {
+      "type": "cashback",
+      "description": "10% back as NeuCoins on Tata Neu App spends (5% card reward + 5% NeuPass benefit)"
+    },
+    {
+      "type": "cashback",
+      "description": "1.5% back as NeuCoins on other eligible non-EMI spends and UPI transactions (RuPay variant)"
+    },
+    {
+      "type": "other",
+      "description": "1% fuel surcharge waiver on transactions between ₹400 and ₹5,000 (max ₹500 per statement cycle)"
+    }
+  ],
+  "milestones": [
+    {
+      "threshold": 50000,
+      "period": "quarterly",
+      "declaredReward": "2 complimentary domestic lounge vouchers on meeting quarterly spend threshold",
+      "source": "bank_site",
+      "sourceRef": "HDFC Tata Neu Infinity Lounge T&C"
+    }
+  ],
+  "declaredConstraints": [
+    {
+      "description": "UPI rewards capped at 500 NeuCoins per calendar month",
+      "source": "bank_site",
+      "sourceRef": "HDFC Tata Neu Infinity Credit Card Page"
+    },
+    {
+      "description": "Domestic lounge access is milestone-based and available only after spending ₹50,000 or more in a calendar quarter",
+      "source": "bank_site",
+      "sourceRef": "HDFC Tata Neu Infinity Credit Card Page"
+    },
+    {
+      "description": "NeuCoins are not accrued on fuel, wallet loads, rent, government, or online gaming transactions",
+      "source": "bank_site",
+      "sourceRef": "HDFC Tata Neu Infinity Credit Card Page"
+    },
+    {
+      "description": "Additional 5% NeuPass benefit applicable only on eligible categories via Tata Neu App/Website",
+      "source": "bank_site",
+      "sourceRef": "HDFC Tata Neu Infinity Credit Card Page"
+    }
+  ],
+  "declaredEligibility": [
+    {
+      "description": "Salaried: Age 21–60 years with minimum net monthly income of ₹1,00,000",
+      "source": "bank_site",
+      "sourceRef": "HDFC Tata Neu Infinity Credit Card Page"
+    },
+    {
+      "description": "Self-employed: Age 21–65 years with minimum annual ITR of ₹12,00,000",
+      "source": "bank_site",
+      "sourceRef": "HDFC Tata Neu Infinity Credit Card Page"
+    }
+  ],
+  "tags": ["co-branded", "tata", "rupay", "upi", "premium", "lifestyle"],
+  "effectiveFrom": "2024-08-01",
+  "effectiveTo": null,
+  "source": "bank_site",
+  "sourceRef": "HDFC Tata Neu Infinity Credit Card Page",
+  "verifiedAt": "2025-02-25T00:00:00Z"
+}
