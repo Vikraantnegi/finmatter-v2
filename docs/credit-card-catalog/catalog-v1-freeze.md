@@ -1,6 +1,6 @@
 # Catalog v1 — Freeze
 
-**Status:** Catalog v1 is frozen. This doc is the checkpoint for handoff to Reward Rules DSL (Milestone 3) and downstream engines.
+**This is a contract, not documentation fluff.** Catalog v1 is frozen. Handoff to Reward Rules DSL (Milestone 3) and Phase 2 engine. We do not change catalog schema or treat catalog as mutable by the engine.
 
 ---
 

@@ -156,9 +156,9 @@
 - [x] **Step 3** — Map catalog → rules (interpretation strategy) — `docs/reward-rules-dsl/interpretation-strategy.md`
 - [x] **Step 4** — Types in code (`reward-rule.ts` or equivalent) — `packages/domain/src/reward-rule.ts`, exported from domain
 - [x] **Step 5** — One example card, end-to-end — `apps/backend/src/db/data/rule-sets/hdfc-millennia.json` + `docs/reward-rules-dsl/example-hdfc-millennia.md`
-- [ ] **Step 6** — Interpretation policy (+ optional DSL v1 freeze) — policy in interpretation-strategy.md; freeze when example signed off
+- [x] **Step 6** — Interpretation policy (+ DSL v1 freeze) — policy in interpretation-strategy.md; freeze: `docs/reward-rules-dsl/dsl-v1-freeze.md`
 - [ ] **Parallel** — Statement ingestion (no block on DSL)
-- [ ] **Next** — Phase 2: Rewards engine (after DSL stable)
+- [ ] **Next** — Phase 2: Rewards engine — see `docs/reward-rules-dsl/phase-2-kickoff.md` (design questions; do not touch DSL or catalog)
 
 ---
 
@@ -176,4 +176,4 @@ Summary of what is in place as of this plan.
 | **Finance verification** | `docs/reward-rules-dsl/example-hdfc-millennia-finance-verification.md`: rule set checked against catalog; agree with documented mapping/limitations; sign-off condition satisfied. |
 | **Interpretation policy** | In interpretation-strategy.md: new cards = manual from MITC/bank_site + catalog; Finance/product sign-off; no AI-invented rules. |
 
-**Not done yet:** Formal “Reward Rules DSL v1 frozen” note (Step 6); Phase 2 Deterministic Rewards Engine.
+**Done (Step 6):** Formal “Reward Rules DSL v1 frozen” note (Step 6); Phase 2 Deterministic Rewards Engine.

@@ -1,0 +1,13 @@
+{
+  "cardId": "hdfc-millennia",
+  "rules": [
+    {"type": "exclusion", "category": "fuel", "sourceConstraintIndex": 2, "sourceRef": "Cashback is not applicable on fuel, rent, government transactions and certain wallet loads"},
+    {"type": "exclusion", "category": "rent", "sourceConstraintIndex": 2},
+    {"type": "exclusion", "category": "wallet_load", "sourceConstraintIndex": 2},
+    {"type": "category_rate", "category": "shopping", "ratePer100": 5, "sourceConstraintIndex": 0, "sourceRef": "5% cashback on select online merchants"},
+    {"type": "category_rate", "category": "other", "ratePer100": 1, "sourceConstraintIndex": 1, "sourceRef": "1% cashback on other eligible spends"},
+    {"type": "cap", "category": "shopping", "maxUnits": 1000, "period": "monthly", "sourceConstraintIndex": 0, "sourceRef": "5% cashback capped at 1,000 cashback points per statement cycle"},
+    {"type": "cap", "category": "other", "maxUnits": 1000, "period": "monthly", "sourceConstraintIndex": 1, "sourceRef": "1% cashback capped at 1,000 cashback points per statement cycle"},
+    {"type": "milestone", "threshold": 100000, "period": "quarterly", "declaredReward": "Gift voucher worth ₹1,000 or one domestic lounge visit", "sourceMilestoneIndex": 0, "sourceRef": "bank_site"}
+  ]
+}
