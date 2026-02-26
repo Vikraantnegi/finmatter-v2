@@ -199,9 +199,44 @@ export async function POST(request: Request) {
         extracted_text: result.fullText,
         page_count: result.pageCount,
         extraction_method: result.extractionMethod,
+        failure_reason: null,
         updated_at: new Date().toISOString(),
       })
       .eq("id", id);
+
+    const autoParse = new URL(request.url).searchParams.get("autoParse") === "true";
+    if (autoParse) {
+      const { parseAndPersistStatement } = await import("@/lib/statement-parse");
+      const parseResult = await parseAndPersistStatement(db, id, userId, result.fullText);
+      if (parseResult.success) {
+        return NextResponse.json({
+          id,
+          success: true,
+          fullText: result.fullText,
+          pageCount: result.pageCount,
+          extractionMethod: result.extractionMethod,
+          parsed: true,
+          bank: parseResult.bank,
+          canonicalCount: parseResult.canonicalCount,
+          metadata: parseResult.metadata,
+          transactions: parseResult.transactions,
+          rawTransactions: parseResult.rawTransactions,
+        });
+      }
+      return NextResponse.json(
+        {
+          id,
+          success: true,
+          fullText: result.fullText,
+          pageCount: result.pageCount,
+          extractionMethod: result.extractionMethod,
+          parsed: false,
+          parseError: parseResult.error,
+          parseMessage: parseResult.message,
+        },
+        { status: 200 }
+      );
+    }
 
     return NextResponse.json({
       id,
@@ -213,11 +248,13 @@ export async function POST(request: Request) {
     });
   }
 
+  const failureReason = result.message ?? result.error ?? "Extraction failed";
   console.error("[POST /api/statements/upload] extraction failed", { id, error: result.error, message: result.message });
   await db
     .from("statement_files")
     .update({
       status: "FAILED",
+      failure_reason: failureReason,
       updated_at: new Date().toISOString(),
     })
     .eq("id", id);

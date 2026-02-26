@@ -1,13 +1,7 @@
 import { NextResponse } from "next/server";
-import {
-  parseStatement,
-  parsedLinesToRawTransactions,
-  runPipeline,
-  canonicalKey,
-  detectBank,
-  type CategorizedTransaction,
-} from "@finmatter/backend";
+import { detectBank, parseStatement } from "@finmatter/backend";
 import { supabase } from "@/lib/supabase/server";
+import { parseAndPersistStatement } from "@/lib/statement-parse";
 
 export async function POST(
   _request: Request,
@@ -55,88 +49,23 @@ export async function POST(
     );
   }
 
-  try {
-    const parsed = parseStatement(extractedText);
-    const cardId = parsed.metadata.cardLast4
-      ? `statement-${parsed.metadata.cardLast4}`
-      : "unknown-card";
-    const rawTransactions = parsedLinesToRawTransactions(parsed.transactions, {
-      statementId: id,
-      userId,
-      cardId,
-    });
+  const result = await parseAndPersistStatement(supabase, id, userId, extractedText);
 
-    const canonical = runPipeline(rawTransactions);
-
-    const canonicalRows = canonical.map((tx: CategorizedTransaction) => ({
-      canonical_key: canonicalKey(tx),
-      id: tx.id,
-      raw_id: tx.rawId,
-      user_id: tx.userId,
-      card_id: tx.cardId,
-      statement_id: tx.statementId,
-      date: tx.date,
-      amount: tx.amount,
-      currency: tx.currency,
-      merchant: tx.merchant,
-      type: tx.type,
-      description: tx.description ?? "",
-      status: tx.status,
-      confidence_score: tx.confidenceScore,
-      parse_method: tx.parseMethod,
-      spend_category: tx.spendCategory,
-      created_at: tx.createdAt,
-      updated_at: tx.updatedAt,
-    }));
-
-    if (canonicalRows.length > 0) {
-      const { error: upsertError } = await supabase
-        .from("canonical_transactions")
-        .upsert(canonicalRows, { onConflict: "canonical_key" });
-      if (upsertError) {
-        return NextResponse.json(
-          {
-            error: "Failed to persist canonical transactions.",
-            message: upsertError.message,
-          },
-          { status: 500 }
-        );
-      }
-    }
-
-    await supabase
-      .from("statement_files")
-      .update({
-        status: "PARSED",
-        updated_at: new Date().toISOString(),
-      })
-      .eq("id", id)
-      .eq("user_id", userId);
-
+  if (result.success) {
     return NextResponse.json({
       success: true,
-      bank: parsed.bank,
-      metadata: parsed.metadata,
-      transactions: parsed.transactions,
-      rawTransactions,
-      canonicalCount: canonical.length,
+      bank: result.bank,
+      metadata: result.metadata,
+      transactions: result.transactions,
+      rawTransactions: result.rawTransactions,
+      canonicalCount: result.canonicalCount,
     });
-  } catch (err) {
-    const message = err instanceof Error ? err.message : String(err);
-    await supabase
-      .from("statement_files")
-      .update({
-        status: "FAILED",
-        updated_at: new Date().toISOString(),
-      })
-      .eq("id", id)
-      .eq("user_id", userId);
-
-    return NextResponse.json(
-      { success: false, error: "Parse failed.", message },
-      { status: 400 }
-    );
   }
+
+  return NextResponse.json(
+    { success: false, error: result.error, message: result.message },
+    { status: 400 }
+  );
 }
 
 /** GET: return detected bank and parse result without persisting. */
@@ -155,7 +84,7 @@ export async function GET(
 
   const { data: row, error } = await supabase
     .from("statement_files")
-    .select("id, status, extracted_text")
+    .select("id, status, extracted_text, failure_reason")
     .eq("id", id)
     .eq("user_id", userId)
     .maybeSingle();
@@ -178,5 +107,6 @@ export async function GET(
     metadata: parsed.metadata,
     transactions: parsed.transactions,
     status: row.status,
+    failure_reason: row.failure_reason ?? undefined,
   });
 }

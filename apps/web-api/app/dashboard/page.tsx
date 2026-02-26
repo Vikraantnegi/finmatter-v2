@@ -4,7 +4,19 @@ import { useState } from "react";
 import Link from "next/link";
 
 type Result =
-  | { success: true; id?: string; fullText: string; pageCount: number; extractionMethod: string; duplicate?: boolean }
+  | {
+      success: true;
+      id?: string;
+      fullText: string;
+      pageCount: number;
+      extractionMethod: string;
+      duplicate?: boolean;
+      parsed?: boolean;
+      bank?: string;
+      canonicalCount?: number;
+      parseError?: string;
+      parseMessage?: string;
+    }
   | { success: false; error: string; message?: string };
 
 // Optional extractions (mirrors backend parsing.types when present)
@@ -80,6 +92,7 @@ function hasAny(obj: Record<string, unknown>): boolean {
 const DashboardPage = () => {
   const [file, setFile] = useState<File | null>(null);
   const [password, setPassword] = useState("");
+  const [autoParse, setAutoParse] = useState(true);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Result | null>(null);
   const [parseLoading, setParseLoading] = useState(false);
@@ -90,11 +103,13 @@ const DashboardPage = () => {
     if (!file) return;
     setLoading(true);
     setResult(null);
+    setParseResult(null);
     try {
       const formData = new FormData();
       formData.set("file", file);
       if (password.trim()) formData.set("password", password.trim());
-      const res = await fetch("/api/statements/upload", {
+      const url = autoParse ? "/api/statements/upload?autoParse=true" : "/api/statements/upload";
+      const res = await fetch(url, {
         method: "POST",
         body: formData,
       });
@@ -111,7 +126,26 @@ const DashboardPage = () => {
           pageCount: data.pageCount ?? 0,
           extractionMethod: data.extractionMethod ?? "pdfjs",
           duplicate: data.duplicate,
+          parsed: data.parsed,
+          bank: data.bank,
+          canonicalCount: data.canonicalCount,
+          parseError: data.parseError,
+          parseMessage: data.parseMessage,
         });
+        if (data.parsed === true && data.bank != null) {
+          setParseResult({
+            success: true,
+            bank: data.bank,
+            metadata: data.metadata ?? {},
+            transactions: data.transactions ?? [],
+            rawTransactions: data.rawTransactions ?? [],
+          });
+        } else if (data.parsed === false && (data.parseError || data.parseMessage)) {
+          setParseResult({
+            success: false,
+            error: data.parseMessage ?? data.parseError ?? "Parse failed",
+          });
+        }
       } else {
         setResult({
           success: false,
@@ -196,6 +230,18 @@ const DashboardPage = () => {
               className="w-full rounded border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 px-3 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400"
             />
           </div>
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="autoParse"
+              checked={autoParse}
+              onChange={(e) => setAutoParse(e.target.checked)}
+              className="rounded border-zinc-300 dark:border-zinc-600"
+            />
+            <label htmlFor="autoParse" className="text-sm text-zinc-700 dark:text-zinc-300">
+              Parse automatically after upload (extract → parse → canonical transactions in one step)
+            </label>
+          </div>
           <button
             type="submit"
             disabled={!file || loading}
@@ -219,7 +265,18 @@ const DashboardPage = () => {
                 )}
                 <p className="text-sm text-zinc-600 dark:text-zinc-400">
                   Pages: {result.pageCount} · Method: {result.extractionMethod}
-                  {result.id && (
+                  {result.parsed === true && result.canonicalCount != null && (
+                    <span className="text-green-600 dark:text-green-400 ml-1">
+                      · Parsed automatically: {result.canonicalCount} canonical transactions
+                      {result.bank && ` · Bank: ${result.bank}`}
+                    </span>
+                  )}
+                  {result.parsed === false && (result.parseError || result.parseMessage) && (
+                    <span className="text-amber-600 dark:text-amber-400 ml-1">
+                      · Parse failed: {result.parseMessage ?? result.parseError}
+                    </span>
+                  )}
+                  {result.id && !result.parsed && (
                     <>
                       {" · "}
                       <button
