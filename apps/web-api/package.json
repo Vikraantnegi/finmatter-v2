@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@finmatter/backend": "workspace:*",
+    "@finmatter/rewards-engine": "workspace:*",
     "@supabase/supabase-js": "^2",
     "next": "16.1.6",
     "pdfjs-dist": "^4",

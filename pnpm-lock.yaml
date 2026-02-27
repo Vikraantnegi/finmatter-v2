@@ -97,6 +97,9 @@ importers:
       '@finmatter/backend':
         specifier: workspace:*
         version: link:../backend
+      '@finmatter/rewards-engine':
+        specifier: workspace:*
+        version: link:../../packages/rewards-engine
       '@supabase/supabase-js':
         specifier: ^2
         version: 2.95.3

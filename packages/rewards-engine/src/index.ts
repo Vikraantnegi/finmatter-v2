@@ -10,6 +10,7 @@ export {
   type RewardComputationResult,
 } from "./core/computeRewardsCore";
 
+export type { CardRuleSet } from "@finmatter/domain";
 export type {
   PeriodContext,
   PerTransactionReward,
