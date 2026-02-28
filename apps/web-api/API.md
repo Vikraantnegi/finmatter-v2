@@ -154,6 +154,25 @@ Compare rewards across multiple cards for the same period using the **same trans
 
 ---
 
+## Recommend (cards that beat baseline)
+
+### POST /api/recommend/cards
+
+Given a user’s real spend and a set of candidate cards (or full catalog), returns cards that would outperform the user’s current baseline. Same transaction set for all; baseline = max total reward among user’s cards. No invented benefits or eligibility.
+
+| | |
+|--|--|
+| **Method** | POST |
+| **Headers** | `x-user-id` (optional; default `test-user`) |
+| **Body** | `{ userId?, period: { type, start, end }, baselineCardIds: string[], candidateCardIds? }` — `baselineCardIds` required (may be empty); `candidateCardIds` optional (default: catalog variant ids minus baseline) |
+| **Response 200** | `{ baselineReward, baselineCardId \| null, recommendations: [{ cardId, totalReward, incrementalReward, bestCategories, explanation }], excluded: { noRuleSet, ineligible } }` — only cards with rule set and totalReward > baselineReward; ordered by incrementalReward desc |
+| **Response 400** | `{ error }` — invalid/missing body, period, or baselineCardIds |
+| **Response 503** | Supabase not configured |
+
+**Behaviour:** Resolves candidates (catalog \ baseline or provided \ baseline); fetches all user transactions in period once; computes baseline from baselineCardIds; runs rewards engine for each candidate; excludes no-rule-set into excluded.noRuleSet; returns only cards that beat baseline with explainable reasons from engine output.
+
+---
+
 ## Summary table
 
 | Method | Path | Purpose |
@@ -166,3 +185,4 @@ Compare rewards across multiple cards for the same period using the **same trans
 | GET | /api/statements/[id]/parse | Parse preview (no persist) |
 | GET | /api/rewards | Compute rewards for card + period |
 | POST | /api/optimize/rewards | Compare rewards across cards (same tx set) |
+| POST | /api/recommend/cards | Recommend cards that beat user’s baseline (same tx set) |
