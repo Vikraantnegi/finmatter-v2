@@ -48,5 +48,15 @@ export async function computeRewards(
   }
 
   const result = computeRewardsCore(ruleSet, transactions, params.period);
+
+  // Optional persistence: upsert period summary for display/cache (best-effort; table must exist).
+  const { upsertRewardPeriodSummary } = await import("./persist-period-summary");
+  await upsertRewardPeriodSummary(supabase, {
+    userId: params.userId,
+    cardId: params.cardId,
+    period: params.period,
+    periodSummary: result.periodSummary,
+  });
+
   return { ok: true, data: result };
 }

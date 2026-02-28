@@ -55,3 +55,15 @@ Quick reference for running and debugging statement ingestion (upload → extrac
 
 - When `statement_files.status` is FAILED, `failure_reason` stores the error message (extraction or parse).
 - Use GET `/api/statements/[id]/parse` or the dashboard validation page to inspect `failure_reason` for a given statement.
+
+---
+
+## Pre-production checklist
+
+Before relying on statement ingestion (and rewards that depend on it), verify:
+
+- [ ] All migrations applied: `statement_files`, `statement_files.failure_reason`, `canonical_transactions`. Optional: `canonical_transactions_user_card_date` (rewards index), `reward_period_summaries` (if using period persistence).
+- [ ] Storage bucket `statement-files` exists and is private.
+- [ ] `pnpm --filter @finmatter/backend build` has been run (extract script at `apps/backend/dist/scripts/extract-stdin.js`).
+- [ ] `.env.local` has `NEXT_PUBLIC_SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`.
+- [ ] One successful E2E: POST /api/statements/upload with a test PDF (and optional `?autoParse=true`) → status EXTRACTED or PARSED → GET /api/canonical-transactions returns rows for that `x-user-id`.
