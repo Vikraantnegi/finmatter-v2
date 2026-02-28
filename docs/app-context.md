@@ -119,6 +119,10 @@ Agents live in `packages/ai/agents/` (product-owner, developer, tester, finance)
 
 | Doc                                                        | Purpose                                                             |
 | ---------------------------------------------------------- | ------------------------------------------------------------------- |
+| [docs/cumulative-product-milestone-plan.md](cumulative-product-milestone-plan.md) | **Authoritative** product identity, current state, M8/M9 scope, Finance verification |
+| [docs/mobile-mvp-screens.md](mobile-mvp-screens.md)        | **Locked** screen list for Mobile MVP; Stitch/design; APIs per screen; gaps called out |
+| [docs/stitch-prompts.md](stitch-prompts.md)                | Stitch MCP: global design system preamble (paste on every prompt) + screen prompts |
+| [docs/screens-order.md](screens-order.md)                  | **Canonical screens order** for Stitch & implementation (Phases A–K, 1–29) |
 | [docs/product-canon.md](product-canon.md)                  | Vision, scope, non-goals, AI philosophy, trust                      |
 | [phase.md](../phase.md)                                    | Phase-by-phase roadmap and deliverables                             |
 | [milestones.md](../milestones.md)                          | Product milestones and phase mapping                                |
