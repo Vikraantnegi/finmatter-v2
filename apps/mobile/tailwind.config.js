@@ -16,29 +16,35 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // FinMatter design system (Figma)
+        // FinMatter HTML/Figma Schema
         primary: "#00B14F",
-        background: "#FFFFFF",
+        background: "#ffffff",
         "background-secondary": "#F8F9FA",
         text: "#1A1A1A",
-        "text-secondary": "#6B7280",
+        "text-secondary": "#4B5563",
         border: "#E5E7EB",
         error: "#DC2626",
         success: "#059669",
-        // Aliases
-        "money-green": "#00B14F",
-        "clean-white": "#FFFFFF",
-        "dark-charcoal": "#1A1A1A",
-        "light-gray": "#F8F9FA",
+        // Precise Aliases matching HTML configuration
+        "background-light": "#ffffff",
+        "background-dark": "#0f2318", 
+        "charcoal": "#1A1A1A",
+        "charcoal-muted": "#4B5563",
+      },
+      fontFamily: {
+        // Enforcing Manrope as the native base font
+        display: ["Manrope_800ExtraBold", "sans-serif"],
+        body: ["Manrope_500Medium", "sans-serif"],
+        sans: ["Manrope_400Regular", "sans-serif"],
       },
       fontSize: {
-        "display-large": ["32px", { lineHeight: "40px" }],
+        "display-large": ["38px", { lineHeight: "40px" }],
         "heading-large": ["24px", { lineHeight: "32px" }],
         "heading-medium": ["20px", { lineHeight: "28px" }],
         body: ["16px", { lineHeight: "24px" }],
         "body-large": ["18px", { lineHeight: "28px" }],
         "body-small": ["14px", { lineHeight: "20px" }],
-        caption: ["12px", { lineHeight: "16px" }],
+        caption: ["13px", { lineHeight: "16px" }],
       },
       spacing: {
         0: 0,
