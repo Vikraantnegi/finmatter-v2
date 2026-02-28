@@ -11,6 +11,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "nativewind": "^4.1.23",
+    "react-native-css-interop": "^0.2.2",
     "@react-navigation/native": "^7.1.28",
     "expo": "~54.0.33",
     "expo-local-authentication": "~17.0.8",
@@ -25,6 +27,7 @@
     "zustand": "^5.0.11"
   },
   "devDependencies": {
+    "tailwindcss": "^3.4.17",
     "@types/react": "~19.1.0",
     "typescript": "~5.9.2"
   },

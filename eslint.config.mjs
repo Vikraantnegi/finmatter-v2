@@ -38,6 +38,13 @@ export default [
       },
     },
   },
+  // Allow require() in config files (metro, tailwind, babel) — they run as CommonJS
+  {
+    files: ["**/*.config.js", "**/babel.config.js"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+    },
+  },
   // TypeScript recommended for backend, mobile, packages
   ...tseslint.config(
     eslint.configs.recommended,

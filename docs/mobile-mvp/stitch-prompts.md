@@ -3,7 +3,8 @@
 Use this doc when generating designs with Stitch MCP. **Paste the Global Design System Preamble at the top of every Stitch batch.**
 
 **Screen list (what to design):** [mobile-mvp-screens.md](mobile-mvp-screens.md)  
-**Canonical order (Stitch & implementation):** [screens-order.md](screens-order.md)
+**Canonical order (Stitch & implementation):** [screens-order.md](screens-order.md)  
+**Implementation (RN styling):** [design-system.md](design-system.md) → `apps/mobile/tailwind.config.js`
 
 ---
 
