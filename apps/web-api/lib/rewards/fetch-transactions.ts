@@ -41,6 +41,12 @@ export type FetchTransactionsParams = {
   periodEnd: string;
 };
 
+export type FetchAllUserTransactionsParams = {
+  userId: string;
+  periodStart: string;
+  periodEnd: string;
+};
+
 /**
  * Fetch transactions for user and card where date is in [periodStart, periodEnd].
  * Returns array suitable for computeRewardsCore. No data alteration.
@@ -54,6 +60,27 @@ export async function fetchTransactionsForPeriod(
     .select("*")
     .eq("user_id", params.userId)
     .eq("card_id", params.cardId)
+    .gte("date", params.periodStart)
+    .lte("date", params.periodEnd)
+    .order("date", { ascending: true });
+
+  if (error) throw error;
+  const rows = (data ?? []) as CanonicalTransactionRow[];
+  return rows.map(rowToCategorizedTransaction);
+}
+
+/**
+ * Fetch all transactions for user in [periodStart, periodEnd] (no card filter).
+ * Used by optimization to run the same transaction set across multiple cards.
+ */
+export async function fetchAllUserTransactionsInPeriod(
+  supabase: SupabaseClient,
+  params: FetchAllUserTransactionsParams
+): Promise<CategorizedTransaction[]> {
+  const { data, error } = await supabase
+    .from("canonical_transactions")
+    .select("*")
+    .eq("user_id", params.userId)
     .gte("date", params.periodStart)
     .lte("date", params.periodEnd)
     .order("date", { ascending: true });

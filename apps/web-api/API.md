@@ -135,6 +135,25 @@ Compute rewards for a card and period using the deterministic rewards engine. Lo
 
 ---
 
+## Optimize (rewards comparison)
+
+### POST /api/optimize/rewards
+
+Compare rewards across multiple cards for the same period using the **same transaction set** (all user transactions in the period). Cards without a rule set are excluded from the comparison.
+
+| | |
+|--|--|
+| **Method** | POST |
+| **Headers** | `x-user-id` (optional; default `test-user`) |
+| **Body** | `{ userId? (overrides header), period: { type, start, end }, cardIds: string[], baselineCardId? }` — `period.type`: `monthly` \| `quarterly` \| `yearly`; `period.start` / `period.end`: ISO dates |
+| **Response 200** | `{ comparedCards: { cardId, totalReward }[], bestCardId, baselineCardId, missedReward, byCategory?: { category, bestCardId, delta, explanation }[] }` — baseline = `baselineCardId` if provided and present in comparedCards, else first card in list |
+| **Response 400** | `{ error }` — invalid/missing body, period, or cardIds |
+| **Response 503** | Supabase not configured |
+
+**Behaviour:** Fetches all canonical transactions for the user in the date range once; runs the rewards engine for each `cardId` with that same set; skips cards with no rule set; returns comparison (best card, missed reward vs baseline, optional per-category insights).
+
+---
+
 ## Summary table
 
 | Method | Path | Purpose |
@@ -146,3 +165,4 @@ Compute rewards for a card and period using the deterministic rewards engine. Lo
 | POST | /api/statements/[id]/parse | Parse extracted statement and persist |
 | GET | /api/statements/[id]/parse | Parse preview (no persist) |
 | GET | /api/rewards | Compute rewards for card + period |
+| POST | /api/optimize/rewards | Compare rewards across cards (same tx set) |
